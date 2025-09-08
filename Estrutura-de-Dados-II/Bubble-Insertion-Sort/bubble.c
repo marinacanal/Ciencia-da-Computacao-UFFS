@@ -2,6 +2,23 @@
 #include <stdlib.h>
 #include <time.h>
 
+/*
+    revisando ponteiro:
+    * na declaracao da variavel so sinaliza que ela é um ponteiro
+    * na chamada da variavel em outros momentos refere-se ao valor no endereco que o ponteiro aponta
+    
+    int i = 8;
+    int *ponteiro; -> declara variavel que aponta para um endereco que armazena um int
+    int(*ponteiroArray)[i]; -> declara variavel que aponta para um array de i elementos int
+    int arr[5] = {1, 2, 3, 4, 5};
+
+    ponteiro = arr; -> aponta para o endereco do primeiro elemento (na posicao 0) do array
+    ponteiro = &i;
+    *ponteiro = 10; -> armazena o valor 10 no endereco apontado por ponteiro
+
+    ponteiroArray = &arr; -> aponta para todo o array  
+*/
+
 void printArray(int n, int *ptr) {
   for (int i = 0; i < n; ++i) {
     printf("%d  ", ptr[i]);
@@ -50,13 +67,22 @@ void magica2(long int n, int *ptr) {
     printArray(n, arr);
 }
   
-  
 int main() // Questão 0 - Verifique se as funções estão funcionando corretamente. Se não, faça a correção.
            //           - Estude o código.
            //           - Altere o valor de n para 1000000. O que pode estar acontecendo com o código?
-{ 
+{
+    /*
+        R: o programa parece travar. pode ser que a quantidade de operacoes seja muito grande e o programa na verdade so esteja executando o codigo ainda.
+    */
+
     int n = 100; 
-    int vet[n]; // Questão 1 - Pq se deve alocar dinamicamente o vetor quando o n > 100 (grande)?
+    int *vet = malloc(n * sizeof(int)); // Questão 1 - Pq se deve alocar dinamicamente o vetor quando o n > 100 (grande)?
+    /*
+        R: porque quando alocamos arrays diretamente, por exemplo, "int vet[n]", estamos utilizando um espaço limitado na memória em forma de
+        pilha (de a 1 a 8MB a depender do SO). Isso significa que alocar arrays muito grandes dessa forma pode levar a estouros na pilha, 
+        quebrando o programa por falta de memória disponível. Por isso, para variáveis maiores é melhor utilizar a memória em heap, 
+        uma região maior e menos limitada de memória disponível. 
+    */
 
     /*
         srand() = set seed para a funcao rand(), que retorna um numero aleatorio
@@ -80,8 +106,7 @@ int main() // Questão 0 - Verifique se as funções estão funcionando corretam
 
     magica(n, vet); // Questão 2 - Qual a diferença entre &vet e vet? 
     /*
-        R: depende, vet e &vet nessa mesma sintaxe retornam ambos a mesma coisa, endereco do vetor no indice 0. 
-        mas &vet[1] e vet[1] possuem diferencas:  &vet[1] retorna o endereco da variavel e vet[1] o valor armazenado nela.
+        R: &vet aponta para o endereco do vetor inteiro, enquanto vet aponta para o endereco do primeiro elemento do vetor (na posicao 0).
     */
 
     clock_t end = clock();
@@ -91,7 +116,7 @@ int main() // Questão 0 - Verifique se as funções estão funcionando corretam
 
     // Questão 3 - O que acontece se a função magica2 for chamada com o argumento &vet ao invés de vet? 
     /*
-        R: os dois geram erro pois os dois retornam o endereco do vetor na posicao 0.
+        R: vai dar erro, pois a funcao espera um ponteiro que aponte para um int e nao para um array de int.
     */
 
     begin = clock();  
@@ -102,6 +127,9 @@ int main() // Questão 0 - Verifique se as funções estão funcionando corretam
 
     time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
     printf("end time: %f\n\n", time_spent); // Questão 4: Pq o tempo de execução é bem menor na função? 
+    /*
+        R: 
+    */
 
     return 0; 
 } 
