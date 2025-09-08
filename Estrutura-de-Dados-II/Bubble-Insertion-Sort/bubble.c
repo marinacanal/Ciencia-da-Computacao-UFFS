@@ -1,6 +1,7 @@
 #include <stdio.h> 
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
 /*
     revisando ponteiro:
@@ -44,14 +45,18 @@ void magica(int n, int *ptr) {
             } 
         } 
     }   
-    printf("sort vector: ");
+    printf("sorted vector: ");
     printArray(n, ptr);
 } 
 
 void magica2(long int n, int *ptr) {
     int *arr = ptr;
+    int contador = 0;
 
     for (long int i = 0; i < n - 1; i++) {
+
+        bool listaOrdenada = true;
+
         for (long int j = 0; j < n - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 int temp = arr[j]; // Questão 6 - Está sendo realizada a troca de um valor ou um ponteiro? 
@@ -60,11 +65,20 @@ void magica2(long int n, int *ptr) {
                 */
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
+
+                contador++;
+                listaOrdenada = false;
             }
         }
+
+        if(listaOrdenada)
+            break;
     }
-    printf("sorted vector: ");
+
+    printf("sorted vector 2: ");
     printArray(n, arr);
+
+    printf("\n\ncontador: %i", contador);
 }
   
 int main() // Questão 0 - Verifique se as funções estão funcionando corretamente. Se não, faça a correção.
@@ -75,7 +89,7 @@ int main() // Questão 0 - Verifique se as funções estão funcionando corretam
         R: o programa parece travar. pode ser que a quantidade de operacoes seja muito grande e o programa na verdade so esteja executando o codigo ainda.
     */
 
-    int n = 100; 
+    int n = 10000; 
     int *vet = malloc(n * sizeof(int)); // Questão 1 - Pq se deve alocar dinamicamente o vetor quando o n > 100 (grande)?
     /*
         R: porque quando alocamos arrays diretamente, por exemplo, "int vet[n]", estamos utilizando um espaço limitado na memória em forma de
@@ -97,6 +111,7 @@ int main() // Questão 0 - Verifique se as funções estão funcionando corretam
         vet[i] = (n - i); 
     }    
     
+    printf("sort vector: ");
     printArray(n, vet);
     
     /*
@@ -104,7 +119,7 @@ int main() // Questão 0 - Verifique se as funções estão funcionando corretam
     */
     clock_t begin = clock(); 
 
-    magica(n, vet); // Questão 2 - Qual a diferença entre &vet e vet? 
+    //magica(n, vet); // Questão 2 - Qual a diferença entre &vet e vet? 
     /*
         R: &vet aponta para o endereco do vetor inteiro, enquanto vet aponta para o endereco do primeiro elemento do vetor (na posicao 0).
     */
@@ -126,7 +141,7 @@ int main() // Questão 0 - Verifique se as funções estão funcionando corretam
     end = clock();
 
     time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-    printf("end time: %f\n\n", time_spent); // Questão 4: Pq o tempo de execução é bem menor na função? 
+    printf("\nend time: %f\n\n", time_spent); // Questão 4: Pq o tempo de execução é bem menor na função? 
     /*
         R: 
     */
