@@ -5,11 +5,31 @@
 
 void inserirAluno(Aluno aluno)
 {
+    Aluno alunoExistente;
     FILE *filePonteiro;
-    aluno.ativo = 1;
+    int alunoJaExiste = 0;  
 
-    filePonteiro = fopen(ARQUIVO, "ab"); // write binary
-    fwrite(&aluno, sizeof(Aluno), 1, filePonteiro);   
+    filePonteiro = fopen(ARQUIVO, "rb"); // read binary
+    if(!filePonteiro)
+        filePonteiro = fopen(ARQUIVO, "wb"); // create binary
+
+    while(fread(&alunoExistente, sizeof(Aluno), 1, filePonteiro))
+    {
+        if(alunoExistente.id == aluno.id)
+        {
+            printf("\n---> já existe um aluno com esse id!\n\n");
+            alunoJaExiste = 1;
+            break;
+        }
+    }
+
+    if(alunoJaExiste == 0)
+    {
+        filePonteiro = fopen(ARQUIVO, "ab");
+        aluno.ativo = 1;
+        fwrite(&aluno, sizeof(Aluno), 1, filePonteiro); 
+    }
+
     fclose(filePonteiro); 
 } 
 
@@ -23,12 +43,14 @@ void listarAlunos(int apenasAtivos)
     filePonteiro = fopen(ARQUIVO, "rb"); // read binary
 
     if(!filePonteiro)
-        filePonteiro = fopen(ARQUIVO, "wb"); // write or create
+        filePonteiro = fopen(ARQUIVO, "wb"); // create binary
 
     while(fread(&aluno, sizeof(Aluno), 1, filePonteiro))
     {
         if(aluno.ativo || !apenasAtivos)
+        {
             printf("%d, %s, %.2f, %d\n", aluno.id, aluno.nome, aluno.media, aluno.ativo);
+        }
     }
 
     fclose(filePonteiro);
