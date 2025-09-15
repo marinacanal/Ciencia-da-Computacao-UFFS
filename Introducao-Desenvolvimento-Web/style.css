@@ -1,0 +1,40 @@
+body {
+    background-color: slateblue;
+    text-align: center;
+}
+
+header {
+    height: 15em;
+    background-color: rgb(181, 169, 255);
+    margin-left: 22em;
+    margin-right: 22em;    
+}
+
+main {
+    margin-top: 1em;
+    margin-left: 22em;
+    margin-right: 22em;
+
+    display: flex;
+    gap: 1em;
+}
+
+nav {
+    width: 15em;
+    height: 15em;
+    background-color: rgb(181, 169, 255);  
+    justify-self: left; /* se centraliza */
+}
+
+article {
+    flex: 1;  /* ocupa o espaço restante */
+    height: 15em;
+    background-color: rgb(181, 169, 255);  
+}
+
+aside {
+    width: 15em;
+    height: 15em;
+    background-color: rgb(181, 169, 255);  
+    justify-self: right; /* se centraliza */
+}
