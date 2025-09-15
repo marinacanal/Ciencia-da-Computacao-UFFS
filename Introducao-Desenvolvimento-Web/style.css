@@ -1,29 +1,32 @@
 body {
     background-color: slateblue;
     text-align: center;
+
+    border: 3px solid green;
 }
 
 header {
     height: 15em;
-    background-color: rgb(181, 169, 255);
-    margin-left: 22em;
-    margin-right: 22em;    
+    background-color: rgb(181, 169, 255);  
 }
 
-main {
-    margin-top: 1em;
+header, main, footer {   
     margin-left: 22em;
-    margin-right: 22em;
+    margin-right: 22em; 
+}
 
+main {  
     display: flex;
     gap: 1em;
+    padding-top: 1em; 
+    padding-bottom: 1em; 
 }
 
 nav {
     width: 15em;
     height: 15em;
     background-color: rgb(181, 169, 255);  
-    justify-self: left; /* se centraliza */
+    justify-self: left; /* se justifica */
 }
 
 article {
@@ -36,5 +39,9 @@ aside {
     width: 15em;
     height: 15em;
     background-color: rgb(181, 169, 255);  
-    justify-self: right; /* se centraliza */
+    justify-self: right; /* se justifica */
+}
+
+footer {
+    background-color: rgb(181, 169, 255); 
 }
