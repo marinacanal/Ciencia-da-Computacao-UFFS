@@ -1,47 +1,84 @@
 body {
-    background-color: slateblue;
+    background-color: rgb(135, 121, 106);
     text-align: center;
+    margin: 3em;
+}
 
-    border: 3px solid green;
+header, main, footer {
+    display: flex;
 }
 
 header {
-    height: 15em;
-    background-color: rgb(181, 169, 255);  
+    display: flex;
+    height: 20em;
+    background-color: rgb(181, 169, 255); 
+    position: relative;
+    align-items: center;
+    justify-content: center;
 }
 
-header, main, footer {   
-    margin-left: 22em;
-    margin-right: 22em; 
+header h1 {
+    position: absolute;
+    color: white;
 }
 
-main {  
+header img {
+    display: inline;
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+}
+
+main {
     display: flex;
     gap: 1em;
-    padding-top: 1em; 
-    padding-bottom: 1em; 
+    flex-flow: row wrap;
+    padding: 1em 0;
 }
 
 nav {
-    width: 15em;
-    height: 15em;
+    display: flex;
+    width: 19%;
     background-color: rgb(181, 169, 255);  
-    justify-self: left; /* se justifica */
+    justify-self: left;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+nav img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+}
+
+ul {
+    position: absolute;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+}
+
+li a:hover {
+    color: white;
 }
 
 article {
-    flex: 1;  /* ocupa o espaço restante */
-    height: 15em;
-    background-color: rgb(181, 169, 255);  
+    background-color: #3a2c13; 
+    flex: 1;
 }
 
 aside {
-    width: 15em;
-    height: 15em;
-    background-color: rgb(181, 169, 255);  
-    justify-self: right; /* se justifica */
+    width: 19%;
+    background-color: rgb(145, 16, 31);  
 }
 
 footer {
-    background-color: rgb(181, 169, 255); 
+    background-color: #3a2c13; 
 }
