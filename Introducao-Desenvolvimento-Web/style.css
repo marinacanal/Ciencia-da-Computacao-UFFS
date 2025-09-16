@@ -10,7 +10,6 @@ body {
 header {
     display: flex;
     height: 20em;
-    background-color: rgb(181, 169, 255); 
     position: relative;
     align-items: center;
     justify-content: center;
@@ -25,7 +24,14 @@ header img {
     display: inline;
     width: 100%;
     height: 100%; 
+}
+
+#header-img-home {
     object-fit: cover;
+}
+
+#header-img-blog {
+    object-fit: contain;
 }
 
 main {
@@ -39,6 +45,7 @@ main {
 nav {
     display: flex;
     width: 19%;
+    height: 20em;
     background-color: rgb(181, 169, 255);  
     justify-self: left;
     position: relative;
@@ -65,7 +72,7 @@ li a {
     color: black;
 }
 
-li a:hover {
+li a:hover, h1 {
     color: white;
 }
 
