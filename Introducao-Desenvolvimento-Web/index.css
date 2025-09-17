@@ -18,7 +18,7 @@ h2 {
     margin-bottom: 1em;
 }
 
-header img, nav img, article, aside, footer {
+header img, nav img, article, aside, footer section {
     border-radius: 1em;
 }
 
@@ -44,7 +44,7 @@ header img {
 main {
     display: flex;
     gap: 1em;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     padding: 1em 0;
     width: 100%;
 }
@@ -97,8 +97,23 @@ aside {
 }
 
 footer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1em;
+}
+
+footer section {
     padding: 2em;
     background-color: #3a2c13; 
+}
+
+#contact {
+    flex: 1;
+}
+
+#web-badges {
+    flex: 1;
 }
 
 input, textarea {
