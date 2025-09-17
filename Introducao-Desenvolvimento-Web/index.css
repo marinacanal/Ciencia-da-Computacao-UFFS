@@ -1,10 +1,17 @@
 body {
     background-color: rgb(135, 121, 106);
+    color: rgb(255, 189, 108);
     text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 2em;
+}
+
+header img, nav img, article, aside, footer {
+    border-radius: 1em;
+}
+
+h2 {
+    margin: 0;
 }
 
 header {
@@ -17,21 +24,13 @@ header {
 
 header h1 {
     position: absolute;
-    color: white;
 }
 
 header img {
     display: inline;
     width: 100%;
     height: 100%; 
-}
-
-#header-img-home {
     object-fit: cover;
-}
-
-#header-img-blog {
-    object-fit: contain;
 }
 
 main {
@@ -45,8 +44,7 @@ main {
 nav {
     display: flex;
     width: 19%;
-    height: 20em;
-    background-color: rgb(181, 169, 255);  
+    height: 22em;
     justify-self: left;
     position: relative;
     align-items: center;
@@ -72,17 +70,19 @@ li a {
     color: black;
 }
 
-li a:hover, h1 {
-    color: white;
+li a:hover {
+    color: rgb(255, 189, 108);;
 }
 
 article {
     background-color: #3a2c13; 
     flex: 1;
+    padding: 2em;
 }
 
 aside {
     width: 19%;
+    height: 22em;
     background-color: rgb(145, 16, 31);  
 }
 
@@ -91,6 +91,21 @@ footer {
     background-color: #3a2c13; 
 }
 
-footer h2 {
-    margin: 0;
+input, textarea {
+    border: none;
+    border-radius: 0.5em;  
+}
+
+button {
+    padding: 0.8em;
+    color: rgb(255, 189, 108);
+    background-color: black;  
+    font-weight: bold;
+    border: none;
+    border-radius: 0.8em;  
+}
+
+button:hover {
+    color: black;
+    background-color: rgb(255, 189, 108);
 }
