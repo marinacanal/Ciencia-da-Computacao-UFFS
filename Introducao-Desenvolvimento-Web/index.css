@@ -18,7 +18,7 @@ h2 {
     margin-bottom: 1em;
 }
 
-header img, nav img, article, aside, footer section {
+header img, nav img, article, aside, footer section, #web-badges-fundo {
     border-radius: 1em;
 }
 
@@ -35,7 +35,6 @@ header h1 {
 }
 
 header img {
-    display: inline;
     width: 100%;
     height: 100%; 
     object-fit: cover;
@@ -105,15 +104,12 @@ footer {
 
 footer section {
     padding: 2em;
-    background-color: #3a2c13; 
+    height: 20em;
 }
 
 #contact {
     flex: 1;
-}
-
-#web-badges {
-    flex: 1;
+    background-color: #3a2c13;
 }
 
 input, textarea {
