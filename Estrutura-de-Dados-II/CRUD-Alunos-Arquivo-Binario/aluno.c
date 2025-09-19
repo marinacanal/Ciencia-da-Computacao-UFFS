@@ -36,8 +36,6 @@ void inserirAluno(Aluno aluno)
 void listarAlunos(int apenasAtivos)
 {
     FILE *filePonteiro;
-    char alunosTexto[1000];
-    char *atributoAluno;
     Aluno aluno;
 
     filePonteiro = fopen(ARQUIVO, "rb"); // read binary
