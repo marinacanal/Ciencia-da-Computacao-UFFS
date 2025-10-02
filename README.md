@@ -1,1 +1,1 @@
-# Anotação de exercícios e atividades durante o curso de Ciência da Computação na UFFS
+# Anotações de exercícios e atividades durante o curso de Ciência da Computação na UFFS
