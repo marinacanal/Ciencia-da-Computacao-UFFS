@@ -1,6 +1,3 @@
-[submodule "Estrutura-Dados-II-TP2"]
-	path = Estrutura-Dados-II-TP2
-	url = https://github.com/marinacanal/Estrutura-Dados-II-TP2.git
 [submodule "Estrutura-de-Dados-II/TP2"]
 	path = Estrutura-de-Dados-II/TP2
 	url = https://github.com/marinacanal/Estrutura-Dados-II-TP2.git
