@@ -4,3 +4,6 @@
 [submodule "Estrutura-de-Dados-II/TP2"]
 	path = Estrutura-de-Dados-II/TP2
 	url = https://github.com/marinacanal/Estrutura-Dados-II-TP2.git
+[submodule "Programacao-Orientada-Objetos/JArena"]
+	path = Programacao-Orientada-Objetos/JArena
+	url = https://github.com/marinacanal/JArena-POO.git
