@@ -98,11 +98,7 @@ int main() // Questão 0 - Verifique se as funções estão funcionando corretam
         uma região maior e menos limitada de memória disponível. 
     */
 
-    /*
-        srand() = set seed para a funcao rand(), que retorna um numero aleatorio
-        time() = retorna tempo atual na maquina e armazena na variavel passada, nesse caso, NULL
-    */
-    srand(time(NULL)); 
+
 
     /*
         popula vetor ao contrario, mas poderiamos usar a funcao rand() no lugar de n - aqui
