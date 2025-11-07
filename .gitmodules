@@ -4,3 +4,6 @@
 [submodule "Programacao-Orientada-Objetos/JArena"]
 	path = Programacao-Orientada-Objetos/JArena
 	url = https://github.com/marinacanal/JArena-POO.git
+[submodule "Introducao-Desenvolvimento-Web/Meu-Blog"]
+	path = Introducao-Desenvolvimento-Web/Meu-Blog
+	url = https://github.com/marinacanal/Meu-Blog.git
