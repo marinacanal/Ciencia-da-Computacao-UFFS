@@ -5,13 +5,31 @@ UFFS - Chapecó
 */
 
 #include "Grafo.h"
+#include <iostream>
+
+using namespace std;
 
 int main() {
-    Circulo circulo1 = Circulo(2);
-    Circulo circulo2 = Circulo(5);
+    try {
+        Grafo grafo(6);
+        
+        cout << "Tem aresta (1, 3): " << grafo.tem_aresta(Aresta(1, 3)) << endl;
+        cout << "Tem aresta (1, 2): " << grafo.tem_aresta(Aresta(1, 2)) << endl;
+        grafo.imprimir();
 
-    circulo1.imprime_perimetro();
-    circulo2.imprime_perimetro();
-    
+        grafo.insere_aresta(Aresta(1, 3));
+        cout << "Tem aresta (1, 3): " << grafo.tem_aresta(Aresta(1, 3)) << endl;
+        cout << "Tem aresta (1, 2): " << grafo.tem_aresta(Aresta(1, 2)) << endl;
+        grafo.imprimir();
+
+        grafo.remove_aresta(Aresta(1, 3));
+        grafo.remove_aresta(Aresta(1, 2));
+        cout << "Tem aresta (1, 2): " << grafo.tem_aresta(Aresta(1, 2)) << endl;
+        grafo.imprimir();
+    }
+    catch(const exception &e) {
+        cerr << "exception: " << e.what() << "\n";
+    }
+
     return 0;
 }
