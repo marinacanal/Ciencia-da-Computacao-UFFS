@@ -2,18 +2,19 @@
 
 #define GRAFO_H
 
+#include <vector>
+
 class Grafo {
     public:
-        Grafo(double raio);
-        double calcula_area();
-        double calcula_perimetro();
-        void imprime_area();
-        void imprime_perimetro();
+        Grafo(int num_vertices);
+
+        int num_vertices();
+        int num_arestas();
     
     private:
         vector<vector<int>> matriz_adjacencia_;
         int num_vertices_;
         int num_arestas_;
-}
+};
 
 #endif
