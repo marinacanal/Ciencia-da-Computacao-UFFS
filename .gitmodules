@@ -7,3 +7,6 @@
 [submodule "Introducao-Desenvolvimento-Web/Meu-Blog"]
 	path = Introducao-Desenvolvimento-Web/Meu-Blog
 	url = https://github.com/marinacanal/Meu-Blog.git
+[submodule "Probabilidade/TP1"]
+	path = Probabilidade/TP1
+	url = https://github.com/marinacanal/Proba_trabalho1_UFFS_2026_2.git
