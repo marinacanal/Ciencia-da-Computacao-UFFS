@@ -95,3 +95,23 @@ bool Grafo::eh_caminho(vector<int> &seq_vertices) {
 
     return eh_passeio(seq_vertices);
 }
+
+int Grafo::grau(int vertice) {
+    int grau = 0;
+
+    for(int i = 0; i < num_vertices_; i++){
+        if (matriz_adjacencia_[i][vertice] == 1)
+            grau++;
+    }
+ }
+
+ int Grafo::grau_minimo() {
+    int menor_grau = num_vertices_ - 1;
+
+    for(int i = 0; i < num_vertices_; i++){
+        int grau_vertice = grau(i);
+
+        if(grau_vertice < menor_grau)
+            menor_grau = grau_vertice;
+    } 
+}
