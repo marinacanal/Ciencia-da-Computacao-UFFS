@@ -23,9 +23,11 @@ class Grafo {
 
         bool eh_passeio(std::vector<int> &seq_vertices);
         bool eh_caminho(std::vector<int> &seq_vertices);
-        
+
         int grau(int vertice);
         int grau_minimo();
+
+        bool existe_caminho(int v1, int v2, int marcado[], int nivel);
     
     private:
         /*

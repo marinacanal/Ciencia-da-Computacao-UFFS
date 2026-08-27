@@ -74,7 +74,7 @@ void Grafo::imprimir() {
 }
 
 bool Grafo::eh_passeio(vector<int> &seq_vertices) {
-    for(int i = 0; i < seq_vertices.size(); i++) {
+    for(int i = 0; i < (int)seq_vertices.size(); i++) {
         if(!tem_aresta(Aresta(seq_vertices[i], seq_vertices[i + 1]))) {
             return false;
         }
@@ -87,7 +87,7 @@ bool Grafo::eh_caminho(vector<int> &seq_vertices) {
     vector<int> seq_vertices_ordenado = seq_vertices;
     sort(seq_vertices_ordenado.begin(), seq_vertices_ordenado.end());
 
-    for(int i = 1; i < seq_vertices.size(); i++) {
+    for(int i = 1; i < (int)seq_vertices.size(); i++) {
         if(seq_vertices[i] == seq_vertices[i - 1]) {
             return false;
         }
@@ -99,13 +99,15 @@ bool Grafo::eh_caminho(vector<int> &seq_vertices) {
 int Grafo::grau(int vertice) {
     int grau = 0;
 
-    for(int i = 0; i < num_vertices_; i++){
+    for(int i = 0; i < num_vertices_; i++) {
         if (matriz_adjacencia_[i][vertice] == 1)
             grau++;
     }
+
+    return grau;
  }
 
- int Grafo::grau_minimo() {
+int Grafo::grau_minimo() {
     int menor_grau = num_vertices_ - 1;
 
     for(int i = 0; i < num_vertices_; i++){
@@ -114,4 +116,32 @@ int Grafo::grau(int vertice) {
         if(grau_vertice < menor_grau)
             menor_grau = grau_vertice;
     } 
+
+    return menor_grau;
+}
+
+bool Grafo::existe_caminho(int v1, int v2, int marcado[], int nivel) {
+    for(int n = 0; n < nivel; n++) {
+        cout << "--";
+    }
+
+    cout << "caminho(" << v1 << ", " << v2 << ")" << endl;
+
+    if (v1 == v2) {    
+        return true;
+    }
+        
+    marcado[v1] = 1;
+
+    for (int i = 0; i < num_vertices_; i++) { 
+
+        if (tem_aresta(Aresta(v1, i)) && marcado[i] == 0) {
+
+            if (existe_caminho(i, v2, marcado, nivel + 1)) 
+                return true;
+
+        }         
+    }
+
+    return false;
 }
