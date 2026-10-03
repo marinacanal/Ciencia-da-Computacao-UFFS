@@ -10,3 +10,6 @@
 [submodule "Probabilidade/TP1"]
 	path = Probabilidade/TP1
 	url = https://github.com/marinacanal/Proba_trabalho1_UFFS_2026_2.git
+[submodule "Grafos/TP1"]
+	path = Grafos/TP1
+	url = https://github.com/marinacanal/Grafos-TP1.git
