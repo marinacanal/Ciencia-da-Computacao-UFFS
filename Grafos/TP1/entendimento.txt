@@ -1,0 +1,8 @@
+1. receber de entrada o grafo, o valor do TTL e o ponto de partida
+
+2. fz tipo uma busca em largura ate o valor ser 0
+
+3. guardar os vertices q agt passou
+
+4. dps retornar os q nao passamos
+
