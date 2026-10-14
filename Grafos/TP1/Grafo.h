@@ -16,7 +16,7 @@ class Grafo {
         void remove_aresta(Aresta a);
         void imprimir();
 
-        void busca_largura(int v);
+        void nao_recebem_mensagem(int origem, int ttl);
     
     private:
         std::vector<std::vector<int>> matriz_adjacencia_;

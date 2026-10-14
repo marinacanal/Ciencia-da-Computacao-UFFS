@@ -85,29 +85,45 @@ void Grafo::imprimir()
     cout << endl;
 }
 
-void Grafo::busca_largura(int v)
+void Grafo::nao_recebem_mensagem(int origem, int ttl)
 {
-    vector<int> marcado(num_vertices_, 0);
+        cout << origem << " " << ttl << ":";
+
+    vector<int> visitado(num_vertices_, 0);
+    vector<int> distancia(num_vertices_, -1);
+
     queue<int> fila;
-    marcado[v] = 1;
-    fila.push(v);
+
+    visitado[origem] = 1;
+    distancia[origem] = 0;
+    fila.push(origem);
 
     while (!fila.empty())
     {
-        int w = fila.front();
+        int v = fila.front();
         fila.pop();
-        printf("%d\n", w);
+
+        if (distancia[v] == ttl)
+            continue;
 
         for (int u = 0; u < num_vertices_; u++)
         {
-            if (matriz_adjacencia_[w][u] != 0)
+            if (matriz_adjacencia_[v][u] != 0 && !visitado[u])
             {
-                if (marcado[u] == 0)
-                {
-                    marcado[u] = 1;
-                    fila.push(u);
-                }
+                visitado[u] = 1;
+                distancia[u] = distancia[v] + 1;
+                fila.push(u);
             }
         }
     }
+
+    cout << origem << " " << ttl << ":";
+
+    for (int i = 0; i < num_vertices_; i++)
+    {
+        if (!visitado[i])
+            cout << " " << i;
+    }
+
+    cout << endl;
 }
